@@ -1,0 +1,41 @@
+/* frontend/src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media print {
+  /* Hanya tampilkan area dokumen */
+  body * {
+    visibility: hidden;
+  }
+
+  .document-container, 
+  .document-container * {
+    visibility: visible;
+  }
+
+  .document-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 210mm !important;   /* ✅ full A4 */
+    height: 297mm !important;  /* ✅ full A4 */
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: white !important;
+  }
+
+  /* Hilangkan tombol aksi */
+  .no-print, .no-print * {
+    display: none !important;
+  }
+
+  /* ✅ pastikan background ikut tercetak */
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    margin: 0 !important;
+  }
+}
